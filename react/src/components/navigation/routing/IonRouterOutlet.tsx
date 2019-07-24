@@ -7,6 +7,7 @@ import { ViewItemManager } from '../ViewItemManager';
 
 type IonRouterOutletProps = {
   id?: string;
+  animated?: boolean;
 };
 
 type IonRouterOutletState = {}
@@ -22,6 +23,7 @@ export class IonRouterOutlet extends React.Component<IonRouterOutletProps, IonRo
   }
 
   componentDidMount() {
+    this.containerEl.current.animated = this.props.animated || true;
     this.context.setupIonRouter(this.id, this.props.children, this.containerEl.current);
   }
 
